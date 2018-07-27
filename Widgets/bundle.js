@@ -108,17 +108,396 @@ var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/i
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _clock = __webpack_require__(/*! ./clock.jsx */ "./lib/clock.jsx");
+
+var _clock2 = _interopRequireDefault(_clock);
+
+var _tabs = __webpack_require__(/*! ./tabs.jsx */ "./lib/tabs.jsx");
+
+var _tabs2 = _interopRequireDefault(_tabs);
+
+var _weather = __webpack_require__(/*! ./weather.jsx */ "./lib/weather.jsx");
+
+var _weather2 = _interopRequireDefault(_weather);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var tab1 = { title: 'first', content: 'firstCon' };
+var tab2 = { title: 'Second', content: 'Second' };
+var tab3 = { title: 'Third', content: 'Third' };
 
 var Root = function Root() {
   return _react2.default.createElement(
     'div',
     null,
-    'Hello'
+    _react2.default.createElement(_clock2.default, null),
+    _react2.default.createElement(_tabs2.default, { tabs: [tab1, tab2, tab3] }),
+    _react2.default.createElement(_weather2.default, null)
   );
 };
 
 exports.default = Root;
+
+/***/ }),
+
+/***/ "./lib/clock.jsx":
+/*!***********************!*\
+  !*** ./lib/clock.jsx ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Clock = function (_React$Component) {
+  _inherits(Clock, _React$Component);
+
+  function Clock(props) {
+    _classCallCheck(this, Clock);
+
+    var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
+
+    _this.state = {
+      time: new Date()
+    };
+
+    _this.tick = _this.tick.bind(_this);
+
+    return _this;
+  }
+
+  _createClass(Clock, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'clock' },
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Clock'
+        ),
+        _react2.default.createElement(
+          'ul',
+          null,
+          _react2.default.createElement(
+            'li',
+            null,
+            ' Hours: ',
+            this.time().getHours()
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            ' Minute: ',
+            this.time().getMinutes()
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            ' Seconds: ',
+            this.time().getSeconds()
+          )
+        )
+      );
+    }
+  }, {
+    key: 'time',
+    value: function time() {
+      return this.state.time;
+    }
+  }, {
+    key: 'tick',
+    value: function tick() {
+      this.setState({ time: new Date() });
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.intervalID = setInterval(this.tick, 1000);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      clearInterval(this.intervalID);
+    }
+  }]);
+
+  return Clock;
+}(_react2.default.Component);
+
+exports.default = Clock;
+
+/***/ }),
+
+/***/ "./lib/tabs.jsx":
+/*!**********************!*\
+  !*** ./lib/tabs.jsx ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Tabs = function (_React$Component) {
+  _inherits(Tabs, _React$Component);
+
+  function Tabs(props) {
+    _classCallCheck(this, Tabs);
+
+    var _this = _possibleConstructorReturn(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this, props));
+
+    _this.state = {
+      selected: 0
+    };
+    _this.click = _this.click.bind(_this);
+    return _this;
+  }
+
+  _createClass(Tabs, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var tabs = this.props.tabs;
+
+      var content = tabs[this.state.selected].content;
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'tab' },
+        _react2.default.createElement(
+          'ul',
+          { className: 'tab-header' },
+          tabs.map(function (tab, idx) {
+            return _react2.default.createElement(
+              'li',
+              { key: idx, onClick: _this2.click(idx) },
+              _react2.default.createElement(
+                'h1',
+                null,
+                tab.title
+              )
+            );
+          }),
+          _react2.default.createElement(
+            'article',
+            null,
+            ' ',
+            content,
+            ' '
+          )
+        )
+      );
+    }
+  }, {
+    key: 'click',
+    value: function click(key) {
+      var _this3 = this;
+
+      return function (e) {
+        return _this3.setState({ selected: key });
+      };
+
+      // this.setState({selected: })
+    }
+  }]);
+
+  return Tabs;
+}(_react2.default.Component);
+
+exports.default = Tabs;
+
+/***/ }),
+
+/***/ "./lib/weather.jsx":
+/*!*************************!*\
+  !*** ./lib/weather.jsx ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Weather = function (_React$Component) {
+  _inherits(Weather, _React$Component);
+
+  function Weather(props) {
+    _classCallCheck(this, Weather);
+
+    var _this = _possibleConstructorReturn(this, (Weather.__proto__ || Object.getPrototypeOf(Weather)).call(this, props));
+
+    _this.state = {
+      weather: null
+    };
+    return _this;
+  }
+
+  _createClass(Weather, [{
+    key: 'render',
+    value: function render() {
+      var weather = this.state.weather;
+
+      if (weather === null) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'widget' },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Loading'
+          )
+        );
+      } else {
+        console.log(weather);
+        return _react2.default.createElement(
+          'div',
+          { className: 'widget' },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Weather'
+          ),
+          _react2.default.createElement(
+            'ul',
+            null,
+            _react2.default.createElement(
+              'li',
+              null,
+              ' ',
+              weather.name,
+              ' '
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              ' ',
+              Math.round((weather.main.temp * (9 / 5) - 459.67) * 10) / 10,
+              ' '
+            )
+          )
+        );
+      }
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      navigator.geolocation.getCurrentPosition(function (pos) {
+
+        _this2.getWeather(pos);
+      });
+    }
+  }, {
+    key: 'getWeather',
+    value: function getWeather(pos) {
+      var _this3 = this;
+
+      var lat = pos.coords.latitude;
+      var lon = pos.coords.longitude;
+
+      var xhr = new XMLHttpRequest();
+      var apiKey = 'a1bb66b8aecf4ed2f77ca177cbadc404';
+      var apiURL = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey;
+
+      var changeWeather = function changeWeather(res) {
+        _this3.setState({ weather: res });
+      };
+
+      // xhr.onreadystatechange = function () {
+      //   if(xhr.readyState === 4 && xhr.status === 200) {
+      //     console.log(xhr.responseText);
+      //   }
+      // };
+
+      xhr.onreadystatechange = function () {
+        if (this.readyState === 4) {
+          if (this.status === 200) {
+            var responseURL = JSON.parse(this.responseText);
+            changeWeather(responseURL);
+          }
+        }
+      };
+
+      xhr.open("GET", apiURL, true);
+      xhr.send();
+    }
+  }]);
+
+  return Weather;
+}(_react2.default.Component);
+
+exports.default = Weather;
 
 /***/ }),
 

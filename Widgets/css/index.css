@@ -1,0 +1,18 @@
+h1 {
+  font-size: 25px;
+}
+
+.clock {
+  font-family: sans-serif;
+  background-color: green;
+}
+
+.tab-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.tab-header li{
+  margin: 10px 50px 0px 50px;
+  border: 1px solid black;
+}
