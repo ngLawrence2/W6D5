@@ -194,7 +194,7 @@ var Clock = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'clock' },
+        { className: 'widget' },
         _react2.default.createElement(
           'h1',
           null,
@@ -202,7 +202,7 @@ var Clock = function (_React$Component) {
         ),
         _react2.default.createElement(
           'ul',
-          null,
+          { className: 'time' },
           _react2.default.createElement(
             'li',
             null,

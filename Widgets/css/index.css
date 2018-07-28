@@ -1,10 +1,25 @@
 h1 {
   font-size: 25px;
+  display: inline;
 }
 
-.clock {
+.widget {
   font-family: sans-serif;
-  background-color: green;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+
+}
+
+.widget ul li {
+  margin: 10px 0px;
+}
+
+.time {
+  background-color: orange;
+  color: white;
+  padding: 20px;
 }
 
 .tab-header {

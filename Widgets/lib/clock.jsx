@@ -15,13 +15,13 @@ class Clock extends React.Component {
 
   render() {
     return (
-      <div className="clock">
+      <div className="widget">
         <h1>Clock</h1>
-          <ul>
-            <li> Hours: {this.time().getHours()}</li>
-            <li> Minute: {this.time().getMinutes()}</li>
-            <li> Seconds: {this.time().getSeconds()}</li>
-          </ul>
+        <ul className="time">
+          <li> Hours: {this.time().getHours()}</li>
+          <li> Minute: {this.time().getMinutes()}</li>
+          <li> Seconds: {this.time().getSeconds()}</li>
+        </ul>
       </div>
     );
   }
